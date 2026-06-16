@@ -5,12 +5,18 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: |
-    echo "Testing Microsoft-hosted Ubuntu Agent"
-    echo "Current directory:"
-    pwd
-    echo "Repository files:"
-    ls -la
-    echo "Operating System:"
-    uname -a
-  displayName: "Test Ubuntu Agent"
+- task: AzureCLI@2
+  displayName: "Verify Azure Service Connection"
+
+  inputs:
+    azureSubscription: 'YOUR-SERVICE-CONNECTION-NAME'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      echo "Logged into Azure successfully"
+
+      echo "Current account details:"
+      az account show
+
+      echo "Available subscriptions:"
+      az account list --output table
