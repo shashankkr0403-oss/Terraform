@@ -1,0 +1,16 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    echo "Testing Microsoft-hosted Ubuntu Agent"
+    echo "Current directory:"
+    pwd
+    echo "Repository files:"
+    ls -la
+    echo "Operating System:"
+    uname -a
+  displayName: "Test Ubuntu Agent"
