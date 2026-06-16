@@ -9,7 +9,7 @@ steps:
   displayName: "Verify Azure Service Connection"
 
   inputs:
-    azureSubscription: 'YOUR-SERVICE-CONNECTION-NAME'
+    azureSubscription: 'ADO-SVC'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
